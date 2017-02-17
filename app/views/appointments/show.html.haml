@@ -3,19 +3,19 @@
   %p#notice= notice
   %p
     %strong Patient:
-    = @appointment.patient_id
+    = User.find(@appointment.patient_id).profile.name
   %p
     %strong Doctor:
-    = @appointment.doctor_id
+    = User.find(@appointment.doctor_id).profile.name
   %p
     %strong Name:
     = @appointment.name
   %p
     %strong Start time:
-    = @appointment.start_time
+    = l @appointment.start_time, format: :long
   %p
     %strong End time:
-    = @appointment.end_time
+    = l @appointment.end_time, format: :long
 %br
 %br
   = link_to 'Edit', edit_appointment_path(@appointment)

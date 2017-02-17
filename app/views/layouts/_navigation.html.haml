@@ -5,6 +5,8 @@
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item
+        = link_to 'Citas', appointments_path, class: 'nav-link'
+      %li.nav-item
         = link_to 'Recetas', recipes_path, class: 'nav-link'
         = link_to 'Doctores', users_path, class: 'nav-link'
       - if current_user&.doctor?

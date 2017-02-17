@@ -7,4 +7,13 @@ namespace :db do
     end
     puts "Done!"
   end
+  
+  desc "Show some stats"
+  task :stats => :environment do
+    [Recipe, Appointment, Disease, User, Medicament, Profile].each do |model|
+      puts "Model #{model} has #{model.count} records."
+    end
+    puts "Done!"
+  end
+
 end

@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+  has_many :patient_appointments, class_name: 'Appointment'
+  has_many :doctor_appointments, class_name: 'Appointment'
 end

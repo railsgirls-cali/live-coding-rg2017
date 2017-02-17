@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-material-datetimepicker
+//= require sweetalert
+//= require sweet-alert-confirm
 //= require_tree .

@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
-  before_action :authorize_doctor, except: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :authorize_doctor, except: [:index, :show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
@@ -75,7 +75,7 @@ class RecipesController < ApplicationController
   end
 
   def authorize_doctor
-    unless current_user.doctor?
+    unless current_user&.doctor?
       not_found
     end
   end

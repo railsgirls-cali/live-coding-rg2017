@@ -3,8 +3,8 @@
     %article{ style: 'margin-top: 24px' }
       %header
         .float-right
-          = link_to 'Edit', edit_recipe_path(recipe)
-          = link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Editar', edit_recipe_path(recipe)
+          = link_to 'Borrar', recipe, method: :delete, data: { confirm: 'Are you sure?' }
         %h2= link_to recipe.name, recipe
         %h5
           Tratamineto para:

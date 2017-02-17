@@ -8,19 +8,19 @@
         - medicament.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :name
+    = f.label :name, 'Nombre'
     = f.text_field :name
   .field
-    = f.label :description
+    = f.label :description, 'Descripción'
     = f.text_field :description
   .field
-    = f.label :brand
+    = f.label :brand, 'Marca'
     = f.text_field :brand
   .field
-    = f.label :price
+    = f.label :price, 'Precio'
     = f.text_field :price
   .field
-    = f.label :disease_id
-    = f.text_field :disease_id
+    = f.label :disease, 'Enfermedad'
+    = f.collection_select :disease_id, Disease.all, :id, :name, prompt: true
   .actions
-    = f.submit
+    = f.submit 'Guardar', class: 'btn btn-success'

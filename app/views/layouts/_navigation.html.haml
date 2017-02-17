@@ -9,3 +9,5 @@
       - if current_user&.doctor?
         %li.nav-item
           = link_to 'Nueva receta', new_recipe_path, class: 'nav-link'
+        %li.nav-item
+          = link_to 'Nuevo medicamento', new_medicament_path, class: 'nav-link'

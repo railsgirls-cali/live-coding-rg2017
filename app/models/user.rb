@@ -27,4 +27,9 @@ class User < ApplicationRecord
   has_one :profile
   has_many :patient_appointments, class_name: 'Appointment'
   has_many :doctor_appointments, class_name: 'Appointment'
+
+  #
+  # Validations
+  #
+  validates_uniqueness_of :email
 end

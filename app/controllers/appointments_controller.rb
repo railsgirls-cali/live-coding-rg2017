@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
-  respond_to :js, :html, :json
 
   # GET /appointments
   # GET /appointments.json
@@ -26,7 +25,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = Appointment.new(appointment_params.merge!(patient_id: current_user.id))
 
     respond_to do |format|
       if @appointment.save

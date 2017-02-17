@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 3.times{ |i|
-  user = User.create(email: "doctor#{i}@test.com", password: '123456789', password_confirmation: '123456789')
+  user = User.create(email: "doctor#{i}@test.com", password: '123456789', doctor: true, password_confirmation: '123456789')
   Profile.create(name: "Pepito#{i}", rating: 0, uuid: 123456789, description: 'A doctor description', user: user)
 }
 

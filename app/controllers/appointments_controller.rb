@@ -5,7 +5,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.where(patient_id: current_user.id).all
+    key = current_user.doctor ? :doctor_id : :patient_id
+    @appointments = Appointment.where(key => current_user.id).all
   end
 
   # GET /appointments/1

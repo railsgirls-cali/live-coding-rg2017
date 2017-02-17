@@ -15,6 +15,4 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require moment
-//= require sweetalert
-//= require sweet-alert-confirm
 //= require_tree .

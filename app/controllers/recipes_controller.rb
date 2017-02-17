@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+  before_action :authorize_doctor, except: :index
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
@@ -62,13 +64,19 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def recipe_params
-      params.require(:recipe).permit(:name, :description)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :disease_id)
+  end
+
+  def authorize_doctor
+    unless current_user.doctor?
+      not_found
     end
+  end
 end

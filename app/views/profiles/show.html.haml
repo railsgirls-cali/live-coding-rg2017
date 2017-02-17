@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @profile.name
+%p
+  %strong Rating:
+  = @profile.rating
+%p
+  %strong Uuid:
+  = @profile.uuid
+%p
+  %strong Description:
+  = @profile.description
+= link_to 'Edit', edit_profile_path(@profile)
+|
+\#{link_to 'Back', profiles_path}

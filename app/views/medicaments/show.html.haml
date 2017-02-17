@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @medicament.name
+%p
+  %strong Description:
+  = @medicament.description
+%p
+  %strong Brand:
+  = @medicament.brand
+%p
+  %strong Price:
+  = @medicament.price
+%p
+  %strong Disease:
+  = @medicament.disease
+= link_to 'Edit', edit_medicament_path(@medicament)
+|
+\#{link_to 'Back', medicaments_path}

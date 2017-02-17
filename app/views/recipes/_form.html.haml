@@ -8,10 +8,13 @@
         - recipe.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :name
+    = f.label :name, 'Nombre de la receta:'
     = f.text_field :name
   .field
-    = f.label :description
-    = f.text_field :description
+    = f.label :description, 'Descripción'
+    = f.text_area :description
+  .field
+    = f.label :disease, 'Enfermedad'
+    = f.collection_select :disease_id, Disease.all, :id, :name, prompt: true
   .actions
     = f.submit

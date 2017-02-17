@@ -11,4 +11,5 @@
 
 class Disease < ApplicationRecord
   has_many :recipes
+  has_many :medicaments
 end

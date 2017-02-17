@@ -1,7 +1,8 @@
 %p#notice= notice
+%h1= @recipe.name
 %p
-  %strong Name:
-  = @recipe.name
+  %strong Enfermedad:
+  = @recipe.disease.name
 %p
   %strong Description:
   = @recipe.description

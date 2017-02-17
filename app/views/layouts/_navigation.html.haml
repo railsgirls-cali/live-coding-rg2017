@@ -8,9 +8,11 @@
         = link_to 'Citas', appointments_path, class: 'nav-link'
       %li.nav-item
         = link_to 'Recetas', recipes_path, class: 'nav-link'
-        = link_to 'Doctores', users_path, class: 'nav-link'
+      %li.nav-item
         = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'
       - if current_user&.doctor?
+        %li.nav-item
+          = link_to 'Doctores', users_path, class: 'nav-link'
         %li.nav-item
           = link_to 'Nueva receta', new_recipe_path, class: 'nav-link'
         %li.nav-item

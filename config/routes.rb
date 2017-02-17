@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :users
   devise_for :users
-  get '/doctors' => 'users#doctors'
+  # get '/doctors' => 'users#doctors'
 
   root 'recipes#index'
 end

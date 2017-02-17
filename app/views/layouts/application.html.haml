@@ -6,4 +6,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+      = render 'layouts/navigation'
+    .container-fluid
+      .main-flash-messages
+        = render 'layouts/messages'
+      = yield
+    %footer.text-muted
+      = render 'layouts/footer'

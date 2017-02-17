@@ -8,9 +8,8 @@
   %body
     %header
       = render 'layouts/navigation'
-    .container-fluid
-      .main-flash-messages
-        = render 'layouts/messages'
+    %main.main-flash-messages
+      = render 'layouts/messages'
       = yield
     %footer.text-muted
       = render 'layouts/footer'

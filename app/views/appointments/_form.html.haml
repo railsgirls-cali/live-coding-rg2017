@@ -1,10 +1,10 @@
 = simple_form_for(appointment) do |f|
   = f.input :doctor_id, as: :select, collection: User.where(doctor: true).all, label_method: -> (u) { u.profile.name }
   .field
-    = f.input :name
+    = f.input :name, label: 'Tipo de cita'
   .field
-    = f.input :start_time
+    = f.input :start_time, label: 'Desde'
   .field
-    = f.input :end_time
+    = f.input :end_time, label: 'hasta'
   .actions
     = f.submit

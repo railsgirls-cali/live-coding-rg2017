@@ -3,10 +3,10 @@
   %p#notice= notice
   %p
     %strong Patient:
-    = User.find(@appointment.patient_id).profile.name
+    = User.find(@appointment.patient_id).email
   %p
     %strong Doctor:
-    = User.find(@appointment.doctor_id).profile.name
+    = User.find(@appointment.doctor_id).email
   %p
     %strong Name:
     = @appointment.name
@@ -18,6 +18,6 @@
     = l @appointment.end_time, format: :long
 %br
 %br
-  = link_to 'Edit', edit_appointment_path(@appointment)
+  = link_to 'Editar', edit_appointment_path(@appointment)
   |
-  \#{link_to 'Back', appointments_path}
+  \#{link_to 'Atrás', appointments_path}

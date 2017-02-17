@@ -1,6 +1,9 @@
-%p#notice= notice
+
 %h1 Appointments
-%table
+.container
+  .col-12
+    #appointmentsContainer
+%table.table.table-hover
   %thead
     %tr
       %th Patient
@@ -22,3 +25,9 @@
         %td= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Appointment', new_appointment_path
+
+
+
+
+:javascript
+  $('#appointmentsContainer').fullCalendar({});

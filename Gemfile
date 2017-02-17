@@ -43,6 +43,7 @@ gem 'fullcalendar-rails', '~> 2.8.0.0'
 gem 'momentjs-rails'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
+gem 'responders'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

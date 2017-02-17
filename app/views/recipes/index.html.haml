@@ -1,6 +1,6 @@
 .col-md-9
   - @recipes.each do |recipe|
-    %section{ style: 'margin-top: 24px' }
+    %article{ style: 'margin-top: 24px' }
       %header
         .float-right
           = link_to 'Edit', edit_recipe_path(recipe)
@@ -9,4 +9,9 @@
         %h5
           Tratamineto para:
           = recipe.disease.name
-      %p= recipe.description
+      %section.row
+        .col-md-4
+          %figure
+            = image_tag recipe.picture, style: 'width:200px'
+        .col-md-8
+          %p= recipe.description

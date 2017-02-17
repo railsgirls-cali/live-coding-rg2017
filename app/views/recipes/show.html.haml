@@ -1,8 +1,12 @@
-.col-md-9
-  %p#notice= notice
-  %h1= @recipe.name
-  %p
-    %strong Enfermedad:
-    = @recipe.disease.name
-  %p
-    = @recipe.description
+%article{ style: 'margin-top: 24px' }
+  %header
+    %h2= @recipe.name
+    %h5
+      Tratamineto para:
+      = @recipe.disease.name
+  %section.row
+    .col-md-4
+      %figure
+        = image_tag @recipe.picture, style: 'width:200px'
+    .col-md-8
+      %p= @recipe.description

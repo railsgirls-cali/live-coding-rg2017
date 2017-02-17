@@ -26,7 +26,8 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params.merge!(patient_id: current_user.id))
+    key = current_user.doctor ? :doctor_id : :patient_id
+    @appointment = Appointment.new(appointment_params.merge!(key => current_user.id))
 
     respond_to do |format|
       if @appointment.save

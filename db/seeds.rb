@@ -21,7 +21,7 @@ Recipe.create(name: 'El poderoso jengibre', picture: "http://candidiasisweb.com/
 Recipe.create(name: 'Jugo de aloe vera', picture: "http://i.ndtvimg.com/i/2015-09/aloe-vera-625_625x350_71443086188.jpg", description: "El aloe vera o sábila es una de esas plantas medicinales con múltiples beneficios para la salud tanto a nivel interno como externo. Tomar todos los días su jugo contribuye a limpiar de manera natural el colon y facilitar la eliminación de los desechos.", disease: disease_estr)
 Recipe.create(name: 'Infusión de alfalfa', picture: "http://www.homeremediesweb.com/images/product_alfalfa.jpg", description: "La menopausia comienza con cambios en el ciclo menstrual (algunos períodos más cortos o más largos, con más o menos sangre) hasta que las menstruaciones cesan de forma definitiva. Esto se debe al hecho que las funciones de los ovarios comienzan adisminuir produciendo cantidades cada vez más pequeñas de estrógeno. Igualmente, las glándulas adrenal y pituitaria comienzan a producir hormonas para reemplazar todas las funciones del estrógeno con excepción las del embarazo.", disease: disease_meno)
 
-Medicament.create(name: 'Eucerin', description: "TBD", brand: 'P&G', price: 20000, disease_id: 1)
-Medicament.create(name: 'Desoxirubina', description: "TBD", brand: 'Baxter', price: 32000, disease_id: 2)
-Medicament.create(name: 'Loratadina', description: "TBD", brand: 'Salud Laboratories', price: 12000, disease_id: 3)
-Medicament.create(name: 'Clofrinamina', description: "TBD", brand: 'BoheringerHingerhinde', price: 18900, disease_id: 4)
+Medicament.create(name: 'Eucerin', description: "TBD", brand: 'P&G', price: 20000, disease: disease_acne)
+Medicament.create(name: 'Desoxirubina', description: "TBD", brand: 'Baxter', price: 32000, disease: disease_asma)
+Medicament.create(name: 'Loratadina', description: "TBD", brand: 'Salud Laboratories', price: 12000, disease: disease_estr)
+Medicament.create(name: 'Clofrinamina', description: "TBD", brand: 'BoheringerHingerhinde', price: 18900, disease: disease_meno)

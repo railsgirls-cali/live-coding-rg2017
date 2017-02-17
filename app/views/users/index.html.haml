@@ -1,0 +1,25 @@
+%h1 Listing Doctors
+
+= search_form_for @q do |f|
+  =f.label :profile_name_or_profile_description_cont
+  =f.search_field :profile_name_or_profile_description_cont
+
+%table
+  %thead
+    %tr
+      %th Nombre
+      %th
+      %th
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.profile.name
+        %td= link_to 'Show', user
+        %td= link_to 'Edit', edit_user_path(user)
+        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Doctor', new_user_path

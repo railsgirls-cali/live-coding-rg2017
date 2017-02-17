@@ -1,10 +1,19 @@
-class DoctorsController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_doctor, only: [:show, :edit, :update, :destroy]
 
   # GET /doctors
   # GET /doctors.json
   def index
-    @doctors = User.doctors
+    # @user = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result.doctors
+
+  end
+
+  def doctors
+    # @q = User.ransack(params[:q])
+    # @doctors = @q.result.doctors
+    # # @doctors = User.doctors
   end
 
   # GET /doctors/1
@@ -14,7 +23,7 @@ class DoctorsController < ApplicationController
 
   # GET /doctors/new
   def new
-    @doctor = User.new
+    @user = User.new
   end
 
   # GET /doctors/1/edit
@@ -24,15 +33,15 @@ class DoctorsController < ApplicationController
   # POST /doctors
   # POST /doctors.json
   def create
-    @doctor = User.new(doctor_params)
+    @user = User.new(doctor_params)
 
     respond_to do |format|
-      if @doctor.save
-        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
-        format.json { render :show, status: :created, location: @doctor }
+      if @user.save
+        format.html { redirect_to @user, notice: 'Doctor was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
-        format.json { render json: @doctor.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +50,12 @@ class DoctorsController < ApplicationController
   # PATCH/PUT /doctors/1.json
   def update
     respond_to do |format|
-      if @doctor.update(doctor_params)
-        format.html { redirect_to @doctor, notice: 'Doctor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @doctor }
+      if @user.update(doctor_params)
+        format.html { redirect_to @user, notice: 'Doctor was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @doctor.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +63,7 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1
   # DELETE /doctors/1.json
   def destroy
-    @doctor.destroy
+    @user.destroy
     respond_to do |format|
       format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,7 +73,7 @@ class DoctorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_doctor
-      @doctor = User.find(params[:id])
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

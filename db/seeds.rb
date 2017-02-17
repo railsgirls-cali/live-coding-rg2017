@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+names = ['Andrea', 'Angy', 'Camila']
+description = ['She is a good doctor!', 'She is OK', 'Please change your doctor']
 3.times{ |i|
   user = User.create(email: "doctor#{i}@test.com", password: '123456789', doctor: true, password_confirmation: '123456789')
-  Profile.create(name: "Pepito#{i}", rating: 0, uuid: 123456789, description: 'A doctor description', user: user)
+  Profile.create(name: names[i], rating: 0, uuid: 123456789, description: description[i], user: user)
 }
 
 disease_acne = Disease.create(name: "Acné", description: "El acné quístico difiere de los típicos granos de acné de la cara en que los del acné quístico son mucho más grandes y dolorosos de lo habitual.")

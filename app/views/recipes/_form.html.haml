@@ -17,4 +17,4 @@
     = f.label :disease, 'Enfermedad'
     = f.collection_select :disease_id, Disease.all, :id, :name, prompt: true
   .actions
-    = f.submit
+    = f.submit 'Guardar', class: 'btn btn-success'

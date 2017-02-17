@@ -1,19 +1,22 @@
-%p#notice= notice
-%p
-  %strong Patient:
-  = @appointment.patient_id
-%p
-  %strong Doctor:
-  = @appointment.doctor_id
-%p
-  %strong Name:
-  = @appointment.name
-%p
-  %strong Start time:
-  = @appointment.start_time
-%p
-  %strong End time:
-  = @appointment.end_time
-= link_to 'Edit', edit_appointment_path(@appointment)
-|
-\#{link_to 'Back', appointments_path}
+.row
+  .col-12
+    %p
+      %strong Paciente:
+      = User.find(@appointment.patient_id).email
+    %p
+      %strong Doctor:
+      = User.find(@appointment.doctor_id).email
+    %p
+      %strong Tipo de cita:
+      = @appointment.name
+    %p
+      %strong Desde:
+      = l @appointment.start_time, format: :long
+    %p
+      %strong Hasta:
+      = l @appointment.end_time, format: :long
+%br
+%br
+  = link_to 'Editar', edit_appointment_path(@appointment)
+  |
+  \#{link_to 'Atrás', appointments_path}

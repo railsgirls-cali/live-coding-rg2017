@@ -1,12 +1,12 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
-  respond_to :js, :html, :json
 
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    key = current_user.doctor ? :doctor_id : :patient_id
+    @appointments = Appointment.where(key => current_user.id).all
   end
 
   # GET /appointments/1
@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
-    @appointment = Appointment.new
+    @appointment = Appointment.new appointment_params
   end
 
   # GET /appointments/1/edit
@@ -26,7 +26,8 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
+    key = current_user.doctor ? :doctor_id : :patient_id
+    @appointment = Appointment.new(appointment_params.merge!(key => current_user.id))
 
     respond_to do |format|
       if @appointment.save

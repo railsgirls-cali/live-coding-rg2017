@@ -32,4 +32,9 @@ class User < ApplicationRecord
   # Validations
   #
   validates_uniqueness_of :email
+
+  #
+  # Scopes
+  #
+  scope :doctors, -> { where(doctor: true) }
 end

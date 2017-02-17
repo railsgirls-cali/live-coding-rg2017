@@ -1,26 +1,10 @@
-= form_for(appointment) do |f|
-  - if appointment.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(appointment.errors.count, "error")
-        prohibited this appointment from being saved:
-      %ul
-        - appointment.errors.full_messages.each do |message|
-          %li= message
+= simple_form_for(appointment) do |f|
+  = f.input :doctor_id, as: :select, collection: User.where(doctor: true).all, label_method: -> (u) { u.profile.name }
   .field
-    = f.label :patient_id
-    = f.number_field :patient_id
+    = f.input :name, label: 'Tipo de cita'
   .field
-    = f.label :doctor_id
-    = f.number_field :doctor_id
+    = f.input :start_time, label: 'Desde'
   .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :start_time
-    = f.datetime_select :start_time
-  .field
-    = f.label :end_time
-    = f.datetime_select :end_time
+    = f.input :end_time, label: 'hasta'
   .actions
-    = f.submit
+    = f.button :submit,  class: 'btn btn-info btn-xs'

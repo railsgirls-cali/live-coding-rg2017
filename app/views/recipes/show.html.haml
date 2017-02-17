@@ -10,3 +10,9 @@
         = image_tag @recipe.picture, style: 'width:200px'
     .col-md-8
       %p= @recipe.description
+  %section
+    %h4 Medicamento Químico
+    - @recipe.disease.medicaments.each do |medicament|
+      %h5= medicament.name
+      = "Laboratorio: #{medicament.brand}"
+      %strong= number_to_currency medicament.price

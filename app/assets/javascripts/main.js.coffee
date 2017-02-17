@@ -12,10 +12,7 @@ window.RG =
             if start < todayDate
               $('#appointmentsContainer').fullCalendar 'unselect'
               return
-            $.ajax
-              type: "GET"
-              url: "/appointments/#{$fullCalendar.data('client')}/new"
-              data: "starts_at=#{start.format()}&ends_at=#{end.format()}"
+            window.location = "/appointments/new?appointment[starts_at]=#{start.format()}&appointment[ends_at]=#{end.format()}"
             return
         $fullCalendar = $('#appointmentsContainer')
         $fullCalendar.fullCalendar Object.assign(RG.calendar.defaultFullcalendarConfig("/appointments.json"), selectableConfig)

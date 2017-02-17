@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.where(patient_id: current_user.id).all
   end
 
   # GET /appointments/1
@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
-    @appointment = Appointment.new
+    @appointment = Appointment.new appointment_params
   end
 
   # GET /appointments/1/edit
